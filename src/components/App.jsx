@@ -5,11 +5,21 @@ import VideoList from './VideoList.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      videosInList: exampleVideoData,
+      videoInPlayer: exampleVideoData[0]
+    };
+    this.onVideoTitleClick = this.onVideoTitleClick.bind(this);
+  }
+
+  onVideoTitleClick(selectedVid) {
+    // console.log(selectedVid);
+    this.setState({
+      videoInPlayer: selectedVid
+    });
   }
 
   render() {
-    // console.log(VideoList);
     return (
       <div>
         <nav className="navbar">
@@ -19,10 +29,11 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            < VideoPlayer video={exampleVideoData[0]} />
+            < VideoPlayer video={this.state.videoInPlayer}/>
           </div>
           <div className="col-md-5">
-            < VideoList videos={exampleVideoData} />
+            < VideoList onClick={this.onVideoTitleClick}
+              videos={this.state.videosInList} />
           </div>
         </div>
       </div>
