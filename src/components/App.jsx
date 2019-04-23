@@ -1,6 +1,6 @@
-// import VideoList from "./VideoList.js";
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
+import VideoList from "./VideoList.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends React.Component {
             < VideoPlayer video={exampleVideoData[0]} />
           </div>
           <div className="col-md-5">
-            {/* < VideoList videos={exampleVideoData} /> */}
+            < VideoList videos={exampleVideoData} />
           </div>
         </div>
       </div>
