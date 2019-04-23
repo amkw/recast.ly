@@ -1,6 +1,6 @@
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
-import VideoList from "./VideoList.js";
+import VideoList from './VideoList.js';
 
 class App extends React.Component {
   constructor(props) {
