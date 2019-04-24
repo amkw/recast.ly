@@ -12,8 +12,24 @@ class App extends React.Component {
     this.onVideoTitleClick = this.onVideoTitleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.getYouTubeVideos('funny puppies');
+  }
+
+  getYouTubeVideos(query) {
+    var options = {
+      key: this.props.API_KEY,
+      query: query
+    };
+    this.props.searchYouTube(options, (videos) => {
+      this.setState({
+        videosInList: videos,
+        videoInPlayer: videos[0]
+      });
+    });
+  }
+
   onVideoTitleClick(selectedVid) {
-    // console.log(selectedVid);
     this.setState({
       videoInPlayer: selectedVid
     });
